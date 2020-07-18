@@ -335,6 +335,27 @@
     return confirm ("Do you want to remove this?");
   });
 </script>
+<script>
+  function Delete(e) {
+    event.preventDefault();
+    var getLink = $(e).attr('href');
+    swal({
+        title: "Kamu Yakin?",
+        text: "Setelah dihapus, data tidak bisa dikembalikan!",
+        icon: "warning",
+        buttons: true,
+        dangerMode: true,
+        })
+        .then((value) => {
+            if (value) {
+                window.location.href = getLink;
+            }else{
+                return false;
+            }
+        });
+  }
+</script>
+
 </body>
 
 </html>

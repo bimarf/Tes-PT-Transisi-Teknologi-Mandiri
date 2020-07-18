@@ -6,7 +6,7 @@
         <div class="col-lg-12">
             <div class="card card-default">
 				    <div class="card-header card-header-border-bottom">
-					<h2>Companies</h2>
+					<h2>Employees</h2>
                     </div>
 				    <div class="card-body">
                     <form class="user" action="{{route('employe.update',$employe->id)}}" method="POST" enctype="multipart/form-data">

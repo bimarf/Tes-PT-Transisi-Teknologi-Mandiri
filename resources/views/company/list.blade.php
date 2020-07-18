@@ -43,7 +43,8 @@
                                 <td>
                                     <div class="btn-group">
                                         <a href="{{route('company.edit',$item->id)}}" class="btn btn-sm btn-primary">Edit</a>
-                                        <a href="{{route('company.delete',$item->id)}}" class="btn btn-sm btn-danger" class="delete">Delete</i></a>
+                                        <button  onclick="return confirm('Are you sure?');"><a href="{{route('company.delete',$item->id)}}" class="btn btn-sm btn-danger" id = "delete">Delete</a></button>
+                                        
                                     </div>
                                 </td>
                             </tr>
@@ -56,5 +57,10 @@
         </div>
     </div>
 </div>
+<script>
+  $(".delete").on("submit", function () {
+    return confirm ("Do you want to remove this?");
+  });
+</script>
 
 @stop

@@ -40,7 +40,7 @@
                                 <td>
                                     <div class="btn-group">
                                         <a href="{{route('employe.edit',$item->id)}}" class="btn btn-sm btn-primary">Edit</a>
-                                        <a href="{{route('employe.delete',$item->id)}}" class="btn btn-sm btn-danger" onclick="Delete(this)">Delete</a>
+                                        <button  onclick="return confirm('Are you sure?');"><a href="{{route('employe.delete',$item->id)}}" class="btn btn-sm btn-danger" id = "delete">Delete</a></button>
                                     </div>
                                 </td>
                             </tr>
