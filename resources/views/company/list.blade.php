@@ -1,0 +1,60 @@
+@extends('layouts.backend')
+
+
+@section('content')
+
+<div class="content">
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="card card-default">
+				    <div class="card-header card-header-border-bottom">
+					<h2>Companies</h2>
+                    </div>
+                    <div>
+                        <a href="{{url('company/create')}}" class="ml-4 mb-1 btn btn-outline-primary">Add New</a>
+                    </div>
+				    <div class="card-body">
+                    <table class="table table-bordered" width="100%" cellspacing="0" role="grid" aria-describedby="dataTable_info" style="width: 100%;">
+                <thead>
+                    <tr role="row">
+                        <th class="sorting_asc" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1" aria-sort="ascending" aria-label="Name: activate to sort column descending" style="width: 109px;">Nama</th>
+                        <th class="sorting" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1" aria-label="Position: activate to sort column ascending" style="width: 184px;">Email</th>
+                        <th class="sorting" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1" aria-label="Office: activate to sort column ascending" style="width: 76px;">Website</th>
+                        <th class="sorting" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1" aria-label="Age: activate to sort column ascending" style="width: 31px;">Logo</th>
+                        <th class="sorting" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1" aria-label="Start date: activate to sort column ascending" style="width: 68px;">Action</th>
+                    </tr>
+                </thead>
+                <tfoot>
+                    <tr>
+                        <th rowspan="1" colspan="1">Nama</th>
+                        <th rowspan="1" colspan="1">Email</th>
+                        <th rowspan="1" colspan="1" width="50">Website</th>
+                        <th rowspan="1" colspan="1">Logo</th>
+                        <th rowspan="1" colspan="1">Action</th>
+                    </tr>
+                </tfoot>
+                     <tbody>
+                            @foreach ($companies as $item)    
+                            <tr role="row" class="odd">
+                                <td>{{$item->name}}</td>
+                                <td>{{$item->email}}</td>
+                                <td width="50">{{$item->website}}</td>
+                                <td><img src="{{url('/')}}/storage/app/company/{{$item->logo}}" alt="" width="100" height="100"></td>
+                                <td>
+                                    <div class="btn-group">
+                                        <a href="{{route('company.edit',$item->id)}}" class="btn btn-sm btn-primary">Edit</a>
+                                        <a href="{{route('company.delete',$item->id)}}" class="btn btn-sm btn-danger" class="delete">Delete</i></a>
+                                    </div>
+                                </td>
+                            </tr>
+                            @endforeach
+                        </tbody>
+                    </table>
+                        {{ $companies->links() }}
+                    </div>
+                 </div>
+        </div>
+    </div>
+</div>
+
+@stop
